@@ -78,20 +78,18 @@ SpringBoot通常有一个名为*Application的入口类,入口类有一个面方
 
 * @SpringBootApplication是Spring Boot的核心注解，它是一个组合注解，源码如下：
 
-@Target({ElementType.TYPE})
-@Retention(RetentionPolicy.RUNTIME)
-@Documented
-@Inherited
-@SpringBootConfiguration
-@EnableAutoConfiguration
+@Target({ElementType.TYPE}) <br>
+@Retention(RetentionPolicy.RUNTIME) <br>
+@Documented <br>
+@Inherited <br>
+@SpringBootConfiguration <br>
+@EnableAutoConfiguration <br>
 @ComponentScan(excludeFilters = {@Filter(type = FilterType.CUSTOM,classes = {TypeExcludeFilter.class}), <br>
-@Filter(type = FilterType.CUSTOM,classes = {AutoConfigurationExcludeFilter.class})})
-public @interface SpringBootApplication {
-    @AliasFor(
-        annotation = EnableAutoConfiguration.class,
-        attribute = "exclude"
-    )
-    Class<?>[] exclude() default {};
+@Filter(type = FilterType.CUSTOM,classes = {AutoConfigurationExcludeFilter.class})}) <br>
+public @interface SpringBootApplication { <br>
+    @AliasFor(annotation = EnableAutoConfiguration.class, attribute = "exclude")  <br>
+	
+    Class<?>[] exclude() default {}; <br>
   
  * @SpringBootApplication注解主要组合了@Configuration、@EnableAutoConfiguration、@ComponentScan；若不适用<br>
  @SpringBootApplication注解，则可以在入口类上直接使用@Configuration、@EnableAutoConfiguration、@ComponentScan。
