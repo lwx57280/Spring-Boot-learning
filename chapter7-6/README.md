@@ -20,7 +20,7 @@
     
     广播式即服务端有消息时，会将消息发送给所有连接了当前endpoint的浏览器。
     
-   
+   ![STOMP](https://github.com/lwx57280/Spring-Boot-leraning/blob/master/chapter7-6/img-folder/webSocket.jpg)
    
     从上述截图可以观察得出，连接服务器的格式为:
     
@@ -50,4 +50,11 @@
 * 点对点式
 
     广播式有自己的应用场景，但是广播式不能解决我们一个常见的场景，即消息由谁发送、又由谁接收的问题。
+    
+    
+    ![广播式](https://github.com/lwx57280/Spring-Boot-leraning/blob/master/chapter7-6/img-folder/WebSocket2.jpg) <br>
+    
+    
+    
+  
     
