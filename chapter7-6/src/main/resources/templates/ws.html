@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en-us">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot + WebSocket + 广播式</title>
+</head>
+<body>
+<div onload="disconnect()">
+    <div>
+        <button id="connect" onclick="connect();">连接</button>
+        <button id="disconnect" disabled="disabled"  onclick="disconnect();">断开连接</button>
+    </div>
+    <div id="conversationDiv">
+        <label>输入你的名字:</label><input type="text" id="name"/>
+        <button id="sendName" onclick="sendName();">发送</button>
+        <p id="response"></p>
+    </div>
+</div>
+<script src="http://cdn.bootcss.com/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="https://cdn.bootcss.com/sockjs-client/1.1.4/sockjs.min.js"></script>
+<!--<script th:src="@{../static/js/sockjs.min.js}"></script>-->
+<!--<script th:src="@{../static/js/stomp.min.js}"></script>-->
+<script th:src="@{js/jquery-1.9.1.min.js}"></script>
+<script type="text/javascript">
+    var stompClient = null;
+    function setConnected(connected) {
+        document.getElementById('connect').disabled=connected;
+        document.getElementById('disconnect').disabled=!connected;
+        document.getElementById('conversationDiv').style.visibility=connected ? 'visible':'hidden';
+        $("#response").html();
+    }
+
+    function connect() {
+        var socket = new SockJS('/endpointWisely');
+        stompClient = Stomp.over(socket);
+        stompClient.connect({},function (frame) {
+            setConnected(true);
+            console.log('Connected:'+frame);
+            stompClient.subscribe('/topic/getResponse',function (response) {
+                showResponse(JSON.parse(response.body).responseMessage);
+            });
+        });
+    }
+   /* 断开连接*/
+    function disconnect() {
+        if(stompClient!=null){
+            stompClient.disconnect();
+        }
+        setConnected(false);
+        console.log("Disconneted");
+    }
+
+    function sendName() {
+        var message = $("#name").val();
+        /*alert("测试"+message);*/
+        stompClient.send("/welcome",{},JSON.stringify({'name':message}));
+    }
+    function showResponse(message) {
+        var response =$("#response");
+        response.html(message)
+    }
+</script>
+</body>
+</html>

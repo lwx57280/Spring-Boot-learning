@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Home</title>
+    <script src="http://cdn.bootcss.com/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="https://cdn.bootcss.com/sockjs-client/1.1.4/sockjs.min.js"></script>
+    <script th:src="@{js/jquery-1.9.1.min.js}"></script>
+</head>
+<body>
+<p>聊天室</p>
+<form id="wiselyForm">
+    <textarea rows="4" cols="60" name="text"></textarea>
+    <input type="submit"/>
+</form>
+
+<input type="button" id="stop" value="关闭"/>
+<script th:inline="javascript">
+    $("#wiselyForm").submit(function (e) {
+        e.preventDefault();
+        var text = $("#wiselyForm").find('textarea[name="text"]').val();
+        sendSpittle(text);
+    });
+
+    var sock = new SockJS("/endpointChat");     /*1、连接endpoint名称为“endpointChat”的endpoint*/
+    var stomp = Stomp.over(sock);
+    stomp.connect('guest','guest',function (frame) {
+        console.log('Connected:'+frame);
+       /* 2、订阅/user/queue/notifications发送消息，这里与控制器的messageTemplate.convertAndSendToUser中定义的订阅地址保持
+        一致。这里多了一个/user/,并且这个/user/是必须的，使用了/user才会发送消息到指定的用户。*/
+        stomp.subscribe("/user/queue/notifications",handleNotification);
+
+    })
+    function handleNotification(message) {
+        $("#output").append("<b>Received:"+message.body+"</b><br/>");
+    }
+    function sendSpittle(text) {
+        stomp.send("/chat",{},text);
+    }
+    $("#stop").click(function () {
+        sock.close();
+    })
+</script>
+<div id="output"></div>
+</body>
+</html>
