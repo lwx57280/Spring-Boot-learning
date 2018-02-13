@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="actionApp">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>实战</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="jquery-ui/jquery-ui.min.css" rel="stylesheet"/>
+    <style type="text/css">
+        .content{
+            padding:100px 15px;
+            text-align: center;
+        }
+    </style>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <!--  [if lt IE 9]>
+    <script type="text/javascript" src="js/html5shiv.js"></script>
+    <script type="text/javascript" src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!--1、使用Bootstrap定义的导航、并配合AngularJS的路由，通过路由名称#/oper和#/directive切换视图；-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#/oper">后台交互</a></li>
+                <li><a href="#/directive">自定义指令</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--2、通过<ng-view></ng-view>展示载入的页面。-->
+<div class="content">
+    <ng-view></ng-view>
+</div>
+<!--3、加载本例所需的脚本，其中jquery-ui.min.js的脚本是为我们定制指令所用；app.js定义AngularJS的模块和路由；directives.js为自定
+义的指令；controller.js是控制器定义之处。-->
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="jquery-ui/jquery-ui.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!--<script src="js/angular.min.js"></script>-->
+    <!--此处很关键Angular文件引入方式经反复验证必须是这种，view1页面内容才能够正常展示载入-->
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js-action/app.js"></script>
+    <script src="js-action/directives.js"></script>
+    <script src="js-action/controllers.js"></script>
+</body>
+</html>
