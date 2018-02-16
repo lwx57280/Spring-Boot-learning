@@ -13,18 +13,19 @@
     
 * Spring Boot的支持
     
-    Spring Boot对Spring Data REST的自动配置放置在Rest中，如图：
+   Spring Boot对Spring Data REST的自动配置放置在Rest中，如图：    
     
-    
+    ![rest服务](https://github.com/lwx57280/Spring-Boot-learning/blob/master/chapter8-3/img-folder/rest.png)
     
     
    5、REST的服务测试
-    (1)列表
+   (1)列表
         
-        
-    (2)获取单一对象
-    
-    (3)查询
+     ![列表](https://github.com/lwx57280/Spring-Boot-learning/blob/master/chapter8-3/img-folder/postman7.jpg)
+   
+   (2)获取单一对象
+     ![获取单一对象](https://github.com/lwx57280/Spring-Boot-learning/blob/master/chapter8-3/img-folder/postman4.jpg)
+   (3)查询
        在自定义实体类Repository中定义了findByNameStartsWith方法,若想此方法也暴露为REST资源，需要做如下修改:
        
        public interface PersonRepository extends JpaRepository<Person,Long> {
@@ -35,24 +36,29 @@
        }
    
    (4)、分页
-   在postman中使用GET访问http://localhost:8089/persons/?page=1&size=2，page=1
-   即第二页，size=2即每页数量为2
+   在postman中使用GET访问http://localhost:8089/persons/?page=1&size=2，page=1即第二页，size=2即每页数量为2
    
+   
+   ![分页](https://github.com/lwx57280/Spring-Boot-learning/blob/master/chapter8-3/img-folder/postman.jpg)
    
-    
-   (5)排序
-   
+   (5)排序   
    在postman中使用GET访问http://localhost:8089/persons/?sort=age,desc，即按照age属性排序
-   
+   
+   ![排序](https://github.com/lwx57280/Spring-Boot-learning/blob/master/chapter8-3/img-folder/postman6.jpg)
    
    (6)保存
-   向http://localhost:8089/persons发起POST请求，将要保存的数据放置在请求体中,数据类型设置为JSON
-   
+    向http://localhost:8089/persons发起POST请求，将要保存的数据放置在请求体中,数据类型设置为JSON
+   
+   ![保存](https://github.com/lwx57280/Spring-Boot-learning/blob/master/chapter8-3/img-folder/postman5.jpg) 
    
    (7)更新
    更新的id为的数据用PUT方式访问http://localhost:8089/persons/7，并修改提交的数据
+   
+   ![更新](https://github.com/lwx57280/Spring-Boot-learning/blob/master/chapter8-3/img-folder/postman4.jpg)
    
    (8)删除
+   
+   ![删除](https://github.com/lwx57280/Spring-Boot-learning/blob/master/chapter8-3/img-folder/postman7.jpg)
    
    使用DELETE方式访问http://localhost:8089/persons/7
    
