@@ -1,4 +1,4 @@
-# Spring-Boot-leraning
+# Spring-Boot-learning
 * Spring Boot实战
 
 什么是Spring Boot
