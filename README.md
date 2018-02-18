@@ -39,7 +39,7 @@ Spring Boot优缺点：
 
 * 项目结构介绍:
     
-![项目目录结构](https://github.com/lwx57280/Spring-Boot-leraning/commit/42cff6fa128c702d6906cab5191365dff8d9ba66) 
+![项目目录结构](https://github.com/lwx57280/Spring-Boot-learning/blob/master/img-folder/SpringBoot.jpg) 
 * 另外，spingboot建议的目录结果如下：
 * com
 * +- example
