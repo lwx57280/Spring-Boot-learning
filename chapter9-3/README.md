@@ -53,6 +53,12 @@ Spring Boot的支持
         spring.rabbitmq.password=secret
      
      
-    运行
+ 运行
     控制台显示Receiver已接收到消息
-    
+    ![Receiver已接收](https://github.com/lwx57280/Spring-Boot-learning/blob/master/chapter9-3/img-folder/MyCatch1.jpg)
+  
+
+在ActiveMQ管理界面查看相关信息
+如图：
+![ActiveMQ管理界面](https://github.com/lwx57280/Spring-Boot-learning/blob/master/chapter9-3/img-folder/MyCatch2.jpg)
+   
