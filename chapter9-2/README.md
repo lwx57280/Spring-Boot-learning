@@ -121,3 +121,8 @@
     public CsvJobListener csvJobListener() {
         return new MyJobListener();
     }
+    
+   手动触发任务
+   
+   数据导入效果如图：
+   ![手动触发](https://github.com/lwx57280/Spring-Boot-learning/blob/master/chapter9-2/img-folder/batch.jpg)
