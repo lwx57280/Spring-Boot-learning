@@ -158,6 +158,7 @@
        
        channel.addInterceptor(someInterceptor);
        
+       
 9.4 Message EndPoint
 --------------------
        
