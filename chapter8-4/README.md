@@ -85,7 +85,7 @@ Spring Boot的事务支持
         
        数据库事务的隔离级别有4个，由低到高依次为Read uncommitted、Read committed、Repeatable read、Serializable，这四个级别可以逐个解决脏读、不可重复读、幻读这几类问题。
        
-       
+ ![Transaction](https://github.com/lwx57280/Spring-Boot-learning/blob/master/chapter8-4/img-folder/Transaction.jpg)
        
        注意：我们讨论隔离级别的场景，主要是在多个事务并发的情况下，因此，接下来的讲解都围绕事务并发。
        
@@ -93,7 +93,7 @@ Read uncommitted 读未提交
 -------------------------
        公司发工资了，领导把5000元打到singo的账号上，但是该事务并未提交，而singo正好去查看账户，发现工资已经到账，是5000元整，非常高兴。可是不幸的是，领导发现发给singo的工资金额不对，是2000元，于是迅速回滚了事务，修改金额后，将事务提交，最后singo实际的工资只有2000元，singo空欢喜一场。
        
-    ![]()
+ ![事务场景](https://github.com/lwx57280/Spring-Boot-learning/blob/master/chapter8-4/img-folder/MyCatch.jpg)
     
     出现上述情况，即我们所说的脏读，两个并发的事务，“事务A：领导给singo发工资”、“事务B：singo查询工资账户”，事务B读取了事务A尚未提交的数据。
     
