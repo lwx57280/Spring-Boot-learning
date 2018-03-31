@@ -33,6 +33,8 @@ Spring Data JPA的事务支持
 ----------------------
     Spring Data JPA对所有的默认方法都开启了事务支持，且查询类事务默认启用readOnly=true属性。
     
+   ![事务行为](https://github.com/lwx57280/Spring-Boot-learning/blob/master/chapter8-4/img-folder/Transaction-1.jpg)
+    
 Spring Boot的事务支持
 -------------------
     1、自动配置的事务管理器
