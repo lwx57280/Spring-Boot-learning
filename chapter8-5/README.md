@@ -29,6 +29,7 @@ Spring Boot的支持
     Spring Boot的CacheManager的自动配置放置在org.springframework.boot.autoconfigure.cache包中，如图：
     
 ![Spring boot缓存](https://github.com/lwx57280/Spring-Boot-learning/blob/master/chapter8-5/img-folder/Cache.jpg)
+
     在Spring Boot环境下，使用缓存技术只需在项目中导入相关的缓存技术依赖包，并在配置类使用@EnableCaching开启缓存支持即可。
     
     
