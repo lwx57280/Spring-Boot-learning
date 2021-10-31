@@ -1,0 +1,4 @@
+com.example.demo.spi.Log=\
+  com.example.demo.spi.Log4j,\
+  com.example.demo.spi.Slf4j,\
+  com.example.demo.spi.Logback
